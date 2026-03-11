@@ -1,5 +1,6 @@
 import { STATIC_BLOG_DATA } from "@/data/blog-data";
 
+// const API_BASE_URL = 'http://localhost:8000/api';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.spotmies.com/api';
 
 export interface BlogPost {
@@ -21,7 +22,7 @@ export interface BlogPost {
 const apiCall = async (endpoint: string, options = {}) => {
     try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
 
         const url = `${API_BASE_URL}${endpoint}`;
         const response = await fetch(url, {
